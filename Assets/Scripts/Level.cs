@@ -46,12 +46,12 @@ public class Level : MonoBehaviour
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
             }
         }
-        if (mushm.friedon > mushm.tempo_need + mushm.tempo_need / 5)
+        if (mushm.friedon > mushm.tempo_need + mushm.tempo_need / 2.5)
         {
             Debug.Log("Baked too hard");
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
-        if (mushm.friedon < mushm.tempo_need - mushm.tempo_need / 5)
+        if (mushm.friedon < mushm.tempo_need - mushm.tempo_need / 2.5)
         {
             Debug.Log("Too not baked");
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);

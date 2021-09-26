@@ -7,6 +7,7 @@ public class pickup : MonoBehaviour
     public Inventory inventory;
     public GameObject itemButton;
     public Mushroom mushm_db;
+    public Fuel fuel_db;
     private void Start()
     {
         inventory = GameObject.FindGameObjectWithTag("Player").GetComponent<Inventory>();
@@ -30,6 +31,11 @@ public class pickup : MonoBehaviour
                         Instance.GetComponent<Mushroom>().poison = mushm_db.poison;
                         Instance.GetComponent<Mushroom>().satiety = mushm_db.satiety;
                         Instance.GetComponent<Mushroom>().reference = mushm_db.reference;
+                    }
+                    if (fuel_db != null)
+                    {
+                        Instance.GetComponent<Fuel>().randomize = false;
+                        Instance.GetComponent<Fuel>().seconds = fuel_db.seconds;
                     }
                     Destroy(gameObject);
                     break;

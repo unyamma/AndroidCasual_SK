@@ -9,6 +9,7 @@ public class Campfire : MonoBehaviour
     public Mushroom mushroom = null;
     public bool check_mushm = false;
     public TextMeshProUGUI text;
+    public float seconds = 0f;
     public void fry(Mushroom mushm)
     {
         //mushroom = mushm;
@@ -37,10 +38,19 @@ public class Campfire : MonoBehaviour
     {
         if (check_mushm == true)
         {
-            mushroom.friedon += tempo_pm / 60 * Time.deltaTime;
+            //
+            if (seconds >= Time.deltaTime)
+            {
+                mushroom.friedon += tempo_pm / 60 * Time.deltaTime;
+                seconds -= Time.deltaTime;
+            }
             //double foD = (double)mushroom.friedon;
             //double gtD = (double)mushroom.reference.good_tempo;
             text.text = ((int)mushroom.friedon) + "/" + ((int)mushroom.reference.good_tempo);
+            if (mushroom.friedon > mushroom.friedon + mushroom.friedon / 2)
+            {
+                check_mushm = false;
+            }
         }
         else
         {

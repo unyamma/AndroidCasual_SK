@@ -6,6 +6,8 @@ TagManager:
   tags:
   - KidsZone
   - CampZone
+  - Mushroom
+  - Fuel
   layers:
   - Default
   - TransparentFX
