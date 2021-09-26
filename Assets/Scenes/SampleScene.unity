@@ -1576,9 +1576,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aee8bb03d721d0c4488c63e612a82026, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hungerlosspm: 200
-  hunger: 100
-  sTimer: 60
+  hungerlosspm: 140
+  hunger: 90
+  sTimer: 120
+  hunger_text: {fileID: 100218948}
+  seconds_text: {fileID: 1379600263}
 --- !u!1 &807892612
 GameObject:
   m_ObjectHideFlags: 0

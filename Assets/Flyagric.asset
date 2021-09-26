@@ -16,6 +16,6 @@ MonoBehaviour:
   edible: 0
   good_tempo: 250
   poison: 125
-  satiety: -0.5
+  satiety: -25
   prefab: {fileID: 8038402498548361594, guid: b2df52de36f56af4aab71ac9d3a1c388, type: 3}
   sprite: {fileID: 21300000, guid: 1a4ed8118bda77643aceaa0db287984e, type: 3}

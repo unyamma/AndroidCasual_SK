@@ -2,12 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class Level : MonoBehaviour
 {
     public float hungerlosspm = 200f;
     public float hunger = 100f;
     public float sTimer = 30f;
+    public TextMeshProUGUI hunger_text;
+    public TextMeshProUGUI seconds_text;
 
     public void FixedUpdate()
     {
@@ -17,6 +20,13 @@ public class Level : MonoBehaviour
         if (hunger <= 0 || sTimer <= 0)
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
+        if (hunger_text && seconds_text)
+        {
+            //double hD = (double)hunger;
+            hunger_text.text = ((int)hunger).ToString();
+            //double sTD = (double)sTimer;
+            seconds_text.text = ((int)sTimer).ToString();
         }
     }
 

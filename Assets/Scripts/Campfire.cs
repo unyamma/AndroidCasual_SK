@@ -38,7 +38,9 @@ public class Campfire : MonoBehaviour
         if (check_mushm == true)
         {
             mushroom.friedon += tempo_pm / 60 * Time.deltaTime;
-            text.text = mushroom.friedon + "/" + mushroom.reference.good_tempo;
+            //double foD = (double)mushroom.friedon;
+            //double gtD = (double)mushroom.reference.good_tempo;
+            text.text = ((int)mushroom.friedon) + "/" + ((int)mushroom.reference.good_tempo);
         }
         else
         {

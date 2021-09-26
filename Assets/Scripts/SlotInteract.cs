@@ -36,6 +36,25 @@ public class SlotInteract : MonoBehaviour
         }
     }
 
+    public void DropItem(bool clone)
+    {
+
+        foreach (Transform child in parent)
+        {
+            //GameObject mushroom = child;
+            if (clone)
+            {
+                GameObject p = Instantiate<GameObject>(child.GetComponent<Mushroom>().reference.prefab, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + 3), child.GetComponent<Mushroom>().reference.prefab.transform.rotation);
+                p.GetComponent<Mushroom>().reference = child.GetComponent<Mushroom>().reference;
+                p.GetComponent<Mushroom>().poison = child.GetComponent<Mushroom>().poison;
+                p.GetComponent<Mushroom>().friedon = child.GetComponent<Mushroom>().friedon;
+                p.GetComponent<Mushroom>().tempo_need = child.GetComponent<Mushroom>().tempo_need;
+                p.GetComponent<Mushroom>().satiety = child.GetComponent<Mushroom>().satiety;
+            }
+            Destroy(child.gameObject);
+        }
+    }
+
     public void Feed()
     {
         if (parent.childCount == 0) { return; }
@@ -45,14 +64,14 @@ public class SlotInteract : MonoBehaviour
         {
             //Debug.Log("Rected to kids zone");
             GameObject.FindGameObjectWithTag("KidsZone").GetComponent<Level>().feed(parent.GetChild(0).gameObject.GetComponent<Mushroom>());
-            DropItem();
+            DropItem(false);
 
         }
         else if (dis_camp <= dis_zone && dis_camp < 4f)
         {
             if (GameObject.FindGameObjectWithTag("CampZone").GetComponent<Campfire>().check_mushm == true) {return;}
             GameObject.FindGameObjectWithTag("CampZone").GetComponent<Campfire>().fry(parent.GetChild(0).gameObject.GetComponent<Mushroom>());
-            DropItem();
+            DropItem(false);
             //Debug.Log("Rected to campfire");
         }
         else
